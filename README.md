@@ -40,3 +40,10 @@ kubectl port-forward pod/dns-check 8080:80
 View results in a browser over localhost:8080 example:
 
 ![sample_view](https://user-images.githubusercontent.com/16940760/91664956-b5e3c100-eaaf-11ea-83ad-cd52c10e12c2.png)
+
+### Using a different DNS server
+The runner script will use first argument if present as the DNS server to query.
+For example:
+```
+bash /dns-plot/runner.sh 172.29.0.10
+```
