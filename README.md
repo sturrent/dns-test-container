@@ -12,3 +12,31 @@ Run in Docker
 ```docker run -it sturrent/dns-test-container:latest```
 
 That will run the container using the /dns-plot/runner.sh which generates output of resperf-report and dnsperf that will be available over http port 80 in the container.
+
+### Using in Kuberntes
+Sample usage in kubernetes
+
+Deploy pod:
+```
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dns-check1
+spec:
+  containers:
+  - name: dns-check1
+    image: sturrent/dns-check:latest
+    ports:
+      - containerPort: 80
+EOF
+```
+
+Make the pod port 80 locally available:
+```
+kubectl port-forward pod/dns-check 8080:80
+```
+
+View results in a browser over localhost:8080 example:
+
+![sample_view](https://user-images.githubusercontent.com/16940760/91664956-b5e3c100-eaaf-11ea-83ad-cd52c10e12c2.png)
