@@ -21,7 +21,7 @@ fi
 pushd /dns-plot > /dev/null
 cp index.html_base index.html
 rm -f $(ls | grep '202\|dnsperf-out') &>/dev/null
-resperf-report -s $DNS_SERVER -d queryfile-sample1 -m 20000 -L 10
+resperf-report -s $DNS_SERVER -d queryfile-sample1 -i 0.5 -m 250 -L 1
 mv $(ls | grep html | head -1) index.html
 dnsperf -s $DNS_SERVER -d queryfile-sample1 -l 30 > dnsperf-out
 echo -e "\n---------------------------------------------------------------\n" > dnsperf-out.txt
