@@ -41,16 +41,16 @@ EOF
 ```
 Note: you can pass custom DNS_SERVER and MAX_QPS modifiying the ENV values accordingly.
 
-####Make the pod port 80 locally available:
+#### Make the pod port 80 locally available:
 ```
 kubectl port-forward pod/dns-check 8080:80
 ```
 
-####View results in a browser over localhost:8080 example:
+#### View results in a browser over localhost:8080 example:
 
 ![sample_view](https://user-images.githubusercontent.com/16940760/92313742-40cf2a80-ef8c-11ea-8e1d-92d3da843b19.png)
 
-### Using a different DNS server
+#### Using a different DNS server
 Get a terminal on the pod and pass custom MAX_QPS and custom DNS_SERVER.
 For example:
 ```
