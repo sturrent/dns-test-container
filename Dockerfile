@@ -12,4 +12,7 @@ RUN chmod +x /dns-plot/dns-loop.sh && mv /dns-plot/dns-loop.sh /usr/bin/dns-loop
     mv /dns-plot/dns-plot-nginx /etc/nginx/sites-available/default && \
     /etc/init.d/nginx start
 
-CMD bash /dns-plot/runner.sh && sleep infinity
+ENV DNS_SERVER=${1:+1}
+ENV MAX_QPS=${1:+1}
+
+CMD bash /dns-plot/runner.sh ${DNS_SERVER} ${MAX_QPS} && sleep infinity

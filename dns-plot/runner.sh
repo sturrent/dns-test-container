@@ -3,12 +3,19 @@
 # script name: resperf-script.sh
 # Version v0.1.2 20200905
 # DNS test to check resolution time
+# Uses two arguments, first one to specify the DNS server IP to query and second one to specify max queries per second
 
 DNS_SERVER=$1
+MAX_QPS=$2
 
 if [ -z "$DNS_SERVER" ]
 then
     DNS_SERVER="$(cat /etc/resolv.conf | grep ^nameserver | awk '{print $2}')"
+fi
+
+if [ -z "$MAX_QPS" ]
+then
+    MAX_QPS="250"
 fi
 
 if ! $(/etc/init.d/nginx status | grep -q "nginx is running")
@@ -19,9 +26,9 @@ else
 fi
 
 pushd /dns-plot > /dev/null
-cp index.html_base index.html
+cp index.html_base index.html > /dev/null
 rm -f $(ls | grep '202\|dnsperf-out') &>/dev/null
-resperf-report -s $DNS_SERVER -d queryfile-sample1 -i 0.5 -m 250 -L 1
+resperf-report -s $DNS_SERVER -d queryfile-sample1 -i 0.5 -m $MAX_QPS -L 1
 mv $(ls | grep html | head -1) index.html
 dnsperf -s $DNS_SERVER -d queryfile-sample1 -l 30 > dnsperf-out
 echo -e "\n---------------------------------------------------------------\n" > dnsperf-out.txt
