@@ -15,4 +15,4 @@ RUN chmod +x /dns-plot/dns-loop.sh && mv /dns-plot/dns-loop.sh /usr/bin/dns-loop
 ENV DNS_SERVER=${1:+1}
 ENV MAX_QPS=${1:+1}
 
-CMD bash /dns-plot/runner.sh ${DNS_SERVER} ${MAX_QPS} && sleep infinity
+CMD bash /dns-plot/runner.sh ${MAX_QPS} ${DNS_SERVER} && sleep infinity
