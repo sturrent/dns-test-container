@@ -26,7 +26,8 @@ metadata:
 spec:
   containers:
   - name: dns-check1
-    image: sturrent/dns-check:latest
+    image: sturrent/dns-perf-test:latest
+    imagePullPolicy: Always
     ports:
       - containerPort: 80
 EOF

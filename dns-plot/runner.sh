@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # script name: resperf-script.sh
-# Version v0.1.0 20200823
+# Version v0.1.2 20200905
 # DNS test to check resolution time
 
 DNS_SERVER=$1
