@@ -3,10 +3,10 @@
 # script name: resperf-script.sh
 # Version v0.1.2 20200905
 # DNS test to check resolution time
-# Uses two arguments, first one to specify the DNS server IP to query and second one to specify max queries per second
+# Uses two arguments, first one to specify max queries per second and second one to specify the DNS server IP to query
 
-DNS_SERVER=$1
-MAX_QPS=$2
+MAX_QPS=$1
+DNS_SERVER=$2
 
 if [ -z "$DNS_SERVER" ]
 then
