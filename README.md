@@ -50,7 +50,7 @@ kubectl port-forward pod/dns-check 8080:80
 
 ![sample_view](https://user-images.githubusercontent.com/16940760/92313742-40cf2a80-ef8c-11ea-8e1d-92d3da843b19.png)
 
-#### Using a different DNS server
+#### Running with a different MAX_QPS and DNS server
 Get a terminal on the pod and pass custom MAX_QPS and custom DNS_SERVER.
 For example:
 ```
