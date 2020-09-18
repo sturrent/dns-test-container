@@ -13,7 +13,7 @@ Run in Docker
 
 That will run the container using the /dns-plot/runner.sh which generates output of resperf-report and dnsperf that will be available over http port 80 in the container.
 The runner.sh scripts can take two arguments, first one sets the max queries per second and second one sets the DNS server IP to queriy.
-If not arguments are provided, the script will use MAX_QPS=250 and DNS_SERVER=<DNS server in resolv.conf>
+If no arguments are provided, the script will use MAX_QPS=250 and DNS_SERVER=<DNS server in resolv.conf>
 
 ### Using in Kuberntes
 Sample usage in kubernetes

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # script name: resperf-script.sh
-# Version v0.1.3 20200905
+# Version v0.1.7 20200917
 # DNS test to check resolution time
 # Uses two arguments, first one to specify max queries per second and second one to specify the DNS server IP to query
 
