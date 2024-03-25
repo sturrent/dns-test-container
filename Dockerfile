@@ -3,8 +3,8 @@ FROM debian:bookworm
 COPY ./dns-plot/ /dns-plot
 
 RUN apt-get update && apt-get install -y dnsutils curl gnupg gnuplot nginx txt2html wget && \
-    mkdir /etc/apt/keyrings; wget -O - https://pkg.dns-oarc.net/dns-oarc.distribution.key.gpg | tee /etc/apt/keyrings/pkg.dns-oarc.net.asc && \
-    echo "deb [signed-by=/etc/apt/keyrings/pkg.dns-oarc.net.asc] http://pkg.dns-oarc.net/stable/bookworm bookworm main" | tee /etc/apt/sources.list.d/dns-oarc-pr.list && \
+    wget -O - https://pkg.dns-oarc.net/dns-oarc.distribution.key.gpg | tee /etc/apt/keyrings/pkg.dns-oarc.net.asc && \
+    echo "deb [signed-by=/etc/apt/keyrings/pkg.dns-oarc.net.asc] http://pkg.dns-oarc.net/debian bookworm main" | tee /etc/apt/sources.list.d/dns-oarc-pr.list && \
     apt-get update && apt-get install dnsperf resperf -y
 
 RUN chmod +x /dns-plot/dns-loop.sh && mv /dns-plot/dns-loop.sh /usr/bin/dns-loop && \
